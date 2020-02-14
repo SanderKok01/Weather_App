@@ -1,0 +1,264 @@
+{
+  "elements": [
+    {
+      "type": "div",
+      "classes": "location_wrapper",
+      "other_attributes": null,
+      "text_content": "",
+      "parent_class": "container"
+    },
+    {
+      "type": "div",
+      "classes": "flag_container",
+      "other_attributes": null,
+      "text_content": "",
+      "parent_class": "location_wrapper"
+    },
+    {
+      "type": "img",
+      "classes": "flag",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "data-x",
+              "value": "left"
+            },
+            {
+              "prop": "title",
+              "value": "Flag image"
+            },
+            {
+              "prop": "data-src-set",
+              "value": "flag"
+            }
+          ]
+        }
+      ],
+      "text_content": "",
+      "parent_class": "flag_container"
+    },
+    {
+      "type": "button",
+      "classes": "del-button",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "onclick",
+              "value": "deleteCard(this);"
+            },
+            {
+              "prop": "data-button",
+              "value": "delete"
+            }
+          ]
+        }
+      ],
+      "text_content": "X",
+      "parent_class": "location_wrapper"
+    },
+    {
+      "type": "div",
+      "classes": "weather_container",
+      "other_attributes": null,
+      "text_content": "",
+      "parent_class": "location_wrapper"
+    },
+    {
+      "type": "div",
+      "classes": "icon_container",
+      "other_attributes": null,
+      "text_content": "",
+      "parent_class": "weather_container"
+    },
+    {
+      "type": "img",
+      "classes": "icon",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "title",
+              "value": "Icon image"
+            },
+            {
+              "prop": "data-src-set",
+              "value": "icon"
+            }
+          ]
+        }
+      ],
+      "text_content": "",
+      "parent_class": "icon_container"
+    },
+    {
+      "type": "p",
+      "classes": "location",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "data-changeable",
+              "value": "location"
+            }
+          ]
+        }
+      ],
+      "text_content": "",
+      "parent_class": "weather_container"
+    },
+    {
+      "type": "p",
+      "classes": "temp",
+      "other_attributes": null,
+      "text_content": "",
+      "parent_class": "weather_container"
+    },
+    {
+      "type": "span",
+      "classes": "temp_amount",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "data-changeable",
+              "value": "temp"
+            }
+          ]
+        }
+      ],
+      "text_content": "10",
+      "parent_class": "temp"
+    },
+    {
+      "type": "span",
+      "classes": "temp_unit",
+      "other_attributes": null,
+      "text_content": "°C",
+      "parent_class": "temp"
+    },
+    {
+      "type": "div",
+      "classes": "details",
+      "other_attributes": null,
+      "text_content": "",
+      "parent_class": "location_wrapper"
+    },
+    {
+      "type": "button",
+      "classes": "details_trigger",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "onclick",
+              "value": "toggleDetails(this);"
+            }
+          ]
+        }
+      ],
+      "text_content": "Details",
+      "parent_class": "details"
+    },
+    {
+      "type": "div",
+      "classes": "details_content",
+      "other_attributes": null,
+      "text_content": "",
+      "parent_class": "details"
+    },
+    {
+      "type": "p",
+      "classes": "details_temp_wrapper",
+      "other_attributes": null,
+      "text_content": "Temprature:",
+      "parent_class": "details_content"
+    },
+    {
+      "type": "span",
+      "classes": "details_temp",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "data-changeable",
+              "value": "details_temp"
+            }
+          ]
+        }
+      ],
+      "text_content": "",
+      "parent_class": "details_temp_wrapper"
+    },
+    {
+      "type": "p",
+      "classes": "details_feels_like_wrapper",
+      "other_attributes": null,
+      "text_content": "Feels like:",
+      "parent_class": "details_content"
+    },
+    {
+      "type": "span",
+      "classes": "details_temp",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "data-changeable",
+              "value": "details_feels_like"
+            }
+          ]
+        }
+      ],
+      "text_content": "",
+      "parent_class": "details_feels_like_wrapper"
+    },
+    {
+      "type": "p",
+      "classes": "details_min_wrapper",
+      "other_attributes": null,
+      "text_content": "Minimum:",
+      "parent_class": "details_content"
+    },
+    {
+      "type": "span",
+      "classes": "details_temp",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "data-changeable",
+              "value": "details_min_wrapper"
+            }
+          ]
+        }
+      ],
+      "text_content": "6.47 °C",
+      "parent_class": "details_min_wrapper"
+    },
+    {
+      "type": "p",
+      "classes": "details_max_wrapper",
+      "other_attributes": null,
+      "text_content": "Maximum:",
+      "parent_class": "details_content"
+    },
+    {
+      "type": "span",
+      "classes": "details_temp",
+      "other_attributes": [
+        {
+          "data": [
+            {
+              "prop": "data-changeable",
+              "value": "details_max_wrapper"
+            }
+          ]
+        }
+      ],
+      "text_content": "13.19 °C",
+      "parent_class": "details_max_wrapper"
+    }
+  ]
+}

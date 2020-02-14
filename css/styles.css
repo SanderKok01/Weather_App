@@ -1,0 +1,212 @@
+@charset "UTF-8";
+html,
+body {
+  margin: 0;
+  background-color: #098bbe;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.container .title {
+  color: #ffffff;
+  display: inline-flex;
+  justify-content: center;
+  height: fit-content;
+  position: absolute;
+}
+.container .location_wrapper {
+  background-color: #e8e8e8;
+  border-radius: 20px;
+  height: 65%;
+  width: 20%;
+  margin: 5% 20px 0 20px;
+  display: inline-block;
+  border-top-left-radius: 0;
+  min-width: 280px;
+}
+.container .location_wrapper .flag {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-left: 7.5px;
+}
+.container .location_wrapper .flag_container {
+  height: 50px;
+  width: 100%;
+}
+.container .location_wrapper .icon {
+  height: 150px;
+  width: 150px;
+}
+.container .location_wrapper .icon_container {
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  display: block;
+}
+.container .location_wrapper .location {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  margin: 0;
+}
+.container .location_wrapper .temp {
+  display: block;
+  text-align: center;
+  font-size: 5rem;
+  position: relative;
+  top: -70px;
+}
+.container .location_wrapper .temp_amount {
+  text-decoration: underline;
+}
+.container .location_wrapper .temp_unit {
+  font-size: 3rem;
+  vertical-align: top;
+}
+.container .location_wrapper .temp_unit[data-haserror=false] {
+  display: inline-block;
+}
+.container .location_wrapper .temp_unit[data-haserror=true] {
+  display: block;
+  position: absolute;
+  width: 100%;
+  margin-left: 0;
+}
+.container .location_wrapper .details {
+  height: 27.5vh;
+  position: relative;
+  bottom: 15%;
+}
+.container .location_wrapper .details[data-wrapper-index="0"] {
+  bottom: 7.5%;
+}
+.container .location_wrapper .details_trigger {
+  background-color: #b60868;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  position: relative;
+  top: 15vh;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.container .location_wrapper .details_temp {
+  float: right;
+}
+.container .location_wrapper .details .active, .container .location_wrapper .details_trigger:hover {
+  background-color: #8f0451;
+}
+.container .location_wrapper .details_trigger:after {
+  content: "+";
+  color: #ffffff;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+.container .location_wrapper .details .active:after {
+  content: "−";
+}
+.container .location_wrapper .details_content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 200ms ease-out;
+  background-color: #f1f1f1;
+  position: relative;
+  bottom: 27.5%;
+}
+
+.input {
+  height: 40px;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 2px solid #ffffff;
+  padding-left: 10px;
+  margin: 0 auto;
+  display: inline-block;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  background-color: transparent;
+  color: #ffffff;
+}
+.input::placeholder {
+  color: #ffffff;
+}
+.input_wrapper {
+  margin: 0 auto;
+  display: block;
+  width: fit-content;
+}
+.input_form {
+  display: inline-block;
+  height: fit-content;
+  position: absolute;
+  right: 2.5%;
+  top: 2.5%;
+}
+.input_button {
+  display: inline-block;
+  height: 46px;
+  position: relative;
+  width: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
+  left: -5px;
+  top: -1px;
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.del-button {
+  position: relative;
+  left: 85%;
+  top: -40px;
+  font-size: 30px;
+  width: 12.5%;
+  height: 7.5%;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  border-radius: 50%;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 200ms;
+}
+.del-button:focus, .del-button:hover {
+  outline: none;
+  border-color: #000000;
+  color: #000000;
+}
+
+.weather_container[data-wrapper-index="0"] {
+  top: 7.5%;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=styles.css.map */

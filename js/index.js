@@ -69,6 +69,11 @@ async function handleSubmit(event) {
     return alert("403: City already exists.");
   };
 
+  // Check if inputValue is equal to current location
+  if (document.querySelector('.location_wrapper[data-wrapper-index="0"]').querySelector('.location').textContent === verifyData.name) {
+    return alert("403: IT ALREADY EXISTS!! >:|");
+  }
+
   // Else, create a card
   new WeatherCard(inputVal, null, true);
 }

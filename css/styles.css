@@ -88,10 +88,7 @@ body {
 .container .location_wrapper .details {
   height: 27.5vh;
   position: relative;
-  bottom: 15%;
-}
-.container .location_wrapper .details[data-wrapper-index="0"] {
-  bottom: 7.5%;
+  bottom: 10%;
 }
 .container .location_wrapper .details_trigger {
   background-color: #b60868;
@@ -179,9 +176,6 @@ body {
 }
 
 .del-button {
-  position: relative;
-  left: 85%;
-  top: -40px;
   font-size: 30px;
   width: 12.5%;
   height: 7.5%;
@@ -192,6 +186,12 @@ body {
   background-color: transparent;
   font-weight: bold;
   cursor: pointer;
+  justify-content: center;
+  display: inline-flex;
+  float: right;
+  position: relative;
+  top: -6.5%;
+  right: 2.5%;
   transition: all 200ms;
 }
 .del-button:focus, .del-button:hover {
@@ -200,7 +200,7 @@ body {
   color: #000000;
 }
 
-.weather_container[data-wrapper-index="0"] {
+.weather_container {
   top: 7.5%;
   position: relative;
 }

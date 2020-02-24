@@ -45,12 +45,14 @@
         {
           "data": [
             {
-              "prop": "onclick",
-              "value": "deleteCard(this);"
-            },
-            {
               "prop": "data-button",
               "value": "delete"
+            }
+          ],
+          "events": [
+            {
+              "type": "click",
+              "name": "delete"
             }
           ]
         }
@@ -150,10 +152,11 @@
       "classes": "details_trigger",
       "other_attributes": [
         {
-          "data": [
+          "data": null,
+          "events": [
             {
-              "prop": "onclick",
-              "value": "toggleDetails(this);"
+              "type": "click",
+              "name": "toggle"
             }
           ]
         }

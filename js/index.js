@@ -24,19 +24,6 @@ function getFlag(country) {
   return `https://www.countryflags.io/${country}/flat/64.png`;
 }
 
-// Toggle the details for temprature
-function toggleDetails(trigger) {
-  trigger.classList.toggle("active");
-  const content = trigger.nextElementSibling;
-  if (content.style.maxHeight){
-    content.style.maxHeight = null;
-    content.style.borderTop = null;
-  } else {
-    content.style.maxHeight = content.scrollHeight + "px";
-    content.style.borderTop = "2px solid #b60868";
-  }
-}
-
 // If location has been recieved
 function success(pos) {
   new WeatherCard(null, pos, false);
@@ -120,8 +107,12 @@ class WeatherCard {
 
             if (element.other_attributes) {
               element.other_attributes.forEach((att, index) => {
-                for (let index = 0; index < att.data.length; index++) {
-                  reusableElement.setAttribute(att.data[index].prop, att.data[index].value);
+                if (!att.data) {
+                  return;
+                } else {
+                  for (let index = 0; index < att.data.length; index++) {
+                    reusableElement.setAttribute(att.data[index].prop, att.data[index].value);
+                  };
                 };
               });
             };
@@ -181,16 +172,86 @@ class WeatherCard {
               wrapperCreated = true;
             }
 
-            // Set attribute
-            reusableElement.setAttribute("data-wrapper-index", weatherIndex);
+            // Set attribute on wrapper
+            if (element.classes === "location_wrapper") {
+              reusableElement.setAttribute("data-wrapper-index", weatherIndex);
+            }
 
             if (!canBeDeleted && element.type === "button" && element.classes === "del-button") {
               return;
             }
 
+            // Add event
+            if (element.other_attributes) {
+              element.other_attributes.forEach(data => {
+                if (!data.events) {
+                  return;
+                } else {
+                  data.events.forEach(ev => {
+                    if (ev.type === "click") {
+                      switch (ev.name) {
+                        case "delete":
+                          reusableElement.addEventListener(ev.type, function(event) {
+                            const el = event.target;
+                            // Get all cards
+                            let cards = Array;
+                            if (!window.localStorage.getItem("cards")) {
+                              cards = [];
+                            } else {
+                              cards = JSON.parse(window.localStorage.getItem("cards"));
+                            };
+                            // Get the item of the index from where the event is triggerd.
+                            const index = Number.parseInt(el.getAttribute('data-wrapper-index'));
+
+                            // Get the wrapper element
+                            const wrapper = document.querySelector(`div.location_wrapper[data-wrapper-index="${index}"]`);
+
+                            // Get the city name from the wrapper
+                            const cityname = wrapper.querySelector('p.location').textContent;
+
+                            // Remove the city name from the localStorage
+                            const filtered = cards.filter(function(value, index, arr) {
+                              return value !== cityname;
+                            });
+                            window.localStorage.setItem('cards', JSON.stringify(filtered));
+
+                            // Remove the element from the DOM
+                            wrapper.remove();
+                            return;
+                          });
+                        case "toggle":
+                          reusableElement.addEventListener(ev.type, function(event) {
+                            const trigger = event.target;
+                            trigger.classList.toggle("active");
+                            const content = trigger.nextElementSibling;
+
+                            if (content.style.maxHeight){
+                              content.style.maxHeight = null;
+                              content.style.borderTop = null;
+                            } else {
+                              content.style.maxHeight = content.scrollHeight + "px";
+                              content.style.borderTop = "2px solid #b60868";
+                            };
+                            return;
+                          });
+                      };
+                    }; // End if
+                  });
+                };
+              });
+            };
+
+            if (element.type === "button") {
+              reusableElement.setAttribute('data-wrapper-index', weatherIndex);
+            }
+
             // Generate elements
             if (wrapperCreated === true) {
-              return document.querySelector(`[data-wrapper-index="${weatherIndex}"].${element.parent_class}`).appendChild(reusableElement);
+              if (element.classes === "location_wrapper") {
+                return document.querySelector(`[data-wrapper-index="${weatherIndex}"].${element.parent_class}`).appendChild(reusableElement);
+              } else {
+                return document.querySelectorAll(`.${element.parent_class}`)[weatherIndex].appendChild(reusableElement);
+              }
             } else {
               return document.querySelector(`.${element.parent_class}`).appendChild(reusableElement);
             };
@@ -234,28 +295,6 @@ function loadFromStorage() {
       }, 250)
     });
   };
-};
-
-// Delete the card from localStorage and view when clicked on the deleteButton
-function deleteCard(el) {
-  // Get all cards
-  let cards = JSON.parse(window.localStorage.getItem("cards"));
-
-  // Get the item of the index from where the event is triggerd.
-  const index = Number.parseInt(el.getAttribute('data-wrapper-index'));
-
-  // Get the wrapper element
-  const wrapper = document.querySelector(`div.location_wrapper[data-wrapper-index="${index}"]`);
-
-  // Get the city name from the wrapper
-  const cityname = wrapper.querySelector('p.location').textContent;
-
-  // Remove the city name from the localStorage
-  cards.splice(index, 1);
-  window.localStorage.setItem('cards', JSON.stringify(cards));
-
-  // Remove the element from the DOM
-  return wrapper.remove();
 };
 
 // Load functions when body is loading
